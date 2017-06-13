@@ -130,7 +130,7 @@ class Scraper(object):
 			pprint.pprint(outd) 
 			ret			= outd['url']
 			val = {
-				"url"		: "plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=%s" % track["sources"][0]["id"]
+				"url"		: "plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=%s" % track["sources"][0]["id"],
 				"duration"	: track['sources'][0]["duration"],
 				"name"		: track['sources'][0]["title"],
 			}
