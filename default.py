@@ -10,7 +10,7 @@ import scraper
 
 ##############################################################
 __XBMC_Revision__	= xbmc.getInfoLabel('System.BuildVersion')
-__settings__		= xbmcaddon.Addon( id=os.path.basename(os.getcwd())) #xbmcaddon.Addon(id='plugin.video.sbs2')
+__settings__		= xbmcaddon.Addon(id='plugin.video.rageagain')
 __language__		= __settings__.getLocalizedString
 __version__			= __settings__.getAddonInfo('version')
 __cwd__				= __settings__.getAddonInfo('path')
@@ -54,7 +54,7 @@ def folders(params):
 	xbmcplugin.endOfDirectory(int(sys.argv[1]))
 
 def play(params):
-	xbmc.Player(xbmc.PLAYER_CORE_DVDPLAYER).play(params["url"], xbmcgui.ListItem(params["name"]))
+	xbmc.Player().play(params["url"], xbmcgui.ListItem(params["name"]))
 
 def record(params):		
 	def rpt(c):

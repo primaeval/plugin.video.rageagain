@@ -114,6 +114,7 @@ class Scraper(object):
 			return params
 		else:
 			out = []
+			print "ZZZ " + repr(track)
 			youtube_dat	= geturl("http://www.youtube.com/get_video_info?el=embedded&splay=1&video_id={0}&eurl=http%3A%2F%2Frageagain.com%2F&asv=3&hl=en_GB".format(track["sources"][0]["id"]))
 			resp		= dict([(k,urllib.unquote(v)) for p in youtube_dat.split('$')[-1].split('&') for k,v in [p.split('=')] ])
 			print "*" *80
@@ -128,13 +129,11 @@ class Scraper(object):
 			print "~" *80
 			pprint.pprint(outd) 
 			ret			= outd['url']
-			
 			val = {
-				"url"		: ret + '&signature=' + outd['sig'],
+				"url"		: "plugin://plugin.video.youtube/?path=/root/video&action=play_video&videoid=%s" % track["sources"][0]["id"]
 				"duration"	: track['sources'][0]["duration"],
 				"name"		: track['sources'][0]["title"],
 			}
-			print val
 			self.play(val)
 			
 
